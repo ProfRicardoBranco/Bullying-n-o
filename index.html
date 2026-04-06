@@ -40,7 +40,7 @@
             text-transform: uppercase;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
         .info-section {
             background: white;
@@ -84,26 +84,32 @@
             padding: 30px 20px;
             border-top: 8px solid;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
         }
 
-        .card h3 { font-family: 'Montserrat', sans-serif; margin: 15px 0; font-size: 1.2rem; text-align: center; }
-        
-        /* Imagens das tirinhas dentro dos cards */
-        .comic-strip {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: block;
-            border: 1px solid #eee;
-        }
-
-        .card ul { text-align: left; list-style: none; font-size: 0.9rem; }
+        .card h3 { font-family: 'Montserrat', sans-serif; margin: 15px 0; font-size: 1.1rem; }
+        .card ul { text-align: left; list-style: none; font-size: 0.85rem; }
         .card ul li { margin-bottom: 10px; padding-left: 15px; position: relative; }
         .card ul li::before { content: "•"; position: absolute; left: 0; font-weight: bold; }
 
         .card-vítima { border-color: var(--color-vítima); }
         .card-observador { border-color: var(--color-observador); }
         .card-pais { border-color: var(--color-pais); }
+
+        /* Estilo para as Tirinhas em destaque */
+        .comic-highlight {
+            width: 100%;
+            margin: 20px 0 40px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 4px solid white;
+        }
+
+        .comic-highlight img {
+            width: 100%;
+            display: block;
+        }
 
         .symptoms-grid {
             display: grid;
@@ -120,15 +126,15 @@
             color: #991b1b;
             padding: 20px;
             border-radius: 10px;
-            margin-top: 20px;
+            margin: 30px 0;
             text-align: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         footer { text-align: center; padding: 60px; color: #94a3b8; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 800px) {
             .card-grid, .symptoms-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -152,43 +158,44 @@
     </section>
 
     <div class="card-grid">
-        
         <div class="card card-vítima">
-            <div style="text-align: center; color: var(--color-vítima); margin-bottom: 15px;">
-                <i class="fas fa-user-shield fa-3x"></i>
-            </div>
-            <h3>PARA QUEM SOFRE</h3>
+            <i class="fas fa-user-shield fa-2x" style="color: var(--color-vítima)"></i>
+            <h3>SE VOCÊ SOFRE</h3>
             <ul>
-                <li><strong>Não se isole:</strong> O agressor quer que você se sinta sozinho.</li>
-                <li><strong>A culpa não é sua:</strong> Nada justifica a violência.</li>
-                <li><strong>Procure ajuda:</strong> Falar é o primeiro passo para o peso diminuir.</li>
+                <li>Não se isole nem se culpe.</li>
+                <li>Falar é o primeiro passo.</li>
+                <li>Procure um adulto hoje.</li>
             </ul>
         </div>
 
         <div class="card card-observador">
-            <img src="quad2.png" alt="Amigos apoiando menino" class="comic-strip" onerror="this.style.display='none';">
-            <h3>PARA OS AMIGOS</h3>
+            <i class="fas fa-users fa-2x" style="color: var(--color-observador)"></i>
+            <h3>SE VOCÊ VÊ</h3>
             <ul>
-                <li><strong>Não seja plateia:</strong> Se você ri, você apoia o agressor.</li>
-                <li><strong>Intervenha:</strong> Como na imagem acima, mostre que o seu amigo não está só.</li>
-                <li><strong>Apoie:</strong> Um pequeno gesto de amizade muda tudo.</li>
+                <li>Não ria nem incentive.</li>
+                <li>Inclua o colega no grupo.</li>
+                <li>Denunciar é proteger.</li>
             </ul>
         </div>
 
         <div class="card card-pais">
-            <img src="quad1.png" alt="Criança conversando com a mãe" class="comic-strip" onerror="this.style.display='none';">
-            <h3>PARA OS PAIS</h3>
+            <i class="fas fa-home fa-2x" style="color: var(--color-pais)"></i>
+            <h3>SE VOCÊ É PAI/MÃE</h3>
             <ul>
-                <li><strong>Escute com amor:</strong> Crie um espaço seguro como o da tirinha acima.</li>
-                <li><strong>Apoie o plano:</strong> Mostre que você e a escola vão resolver juntos.</li>
-                <li><strong>Esteja atento:</strong> Dores de cabeça e tristeza súbita são sinais de alerta.</li>
+                <li>Escute com total empatia.</li>
+                <li>Observe sinais de tristeza.</li>
+                <li>Fale com a escola já.</li>
             </ul>
         </div>
     </div>
 
+    <div class="comic-highlight">
+        <img src="quad2.png" alt="A união dos amigos contra o bullying" onerror="this.style.display='none';">
+    </div>
+
     <section class="info-section">
         <h2>As Marcas Invisíveis</h2>
-        <p>Muitos alunos não denunciam por medo de retaliação. "Prefiro continuar a ser vítima do que todos saberem", dizem alguns. Precisamos quebrar esse silêncio.</p>
+        <p>Muitos alunos não denunciam por medo de retaliação ou exposição. "Prefiro continuar a ser vítima do que todos saberem", dizem alguns. Esse peso acaba se tornando físico e emocional.</p>
         
         <div class="symptoms-grid">
             <div class="symptom-box">
@@ -196,23 +203,27 @@
                 <ul>
                     <li>Dores de cabeça ou barriga frequentes</li>
                     <li>Falta de vontade de ir à escola</li>
-                    <li>Irritabilidade extrema</li>
+                    <li>Alterações no sono</li>
                 </ul>
             </div>
             <div class="symptom-box">
                 <strong><i class="fas fa-heart"></i> Sinais Emocionais</strong>
                 <ul>
-                    <li>Apatia e desinteresse por hobbies</li>
+                    <li>Apatia e irritabilidade extrema</li>
                     <li>Falta de confiança em si mesmo</li>
-                    <li>Medo constante de exposição</li>
+                    <li>Medo constante</li>
                 </ul>
             </div>
         </div>
 
         <div class="alert-box">
-            <i class="fas fa-phone-alt"></i> PRECISA DE AJUDA? Apoio gratuito: 116 111
+            <i class="fas fa-phone-alt"></i> AJUDA GRATUITA: 116 111
         </div>
     </section>
+
+    <div class="comic-highlight">
+        <img src="quad1.png" alt="Criança conversando com a mãe" onerror="this.style.display='none';">
+    </div>
 
 </div>
 
