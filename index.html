@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Além da Máscara | Projeto Bullying</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary-color: #8b5cf6; /* Roxo vibrante */
+            --secondary-color: #06b6d4; /* Azul ciano */
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%);
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .manga-placeholder {
+            width: 100%;
+            background: #334155;
+            border: 2px dashed var(--text-muted);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            min-height: 300px;
+        }
+
+        .manga-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 15px;
+            margin: 20px 0;
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ALÉM DA MÁSCARA</h1>
+        <p>O que acontece quando o silêncio é a única resposta?</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/r7xsLuAPdVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="section">
+            <h2>A Armadura de Vidro</h2>
+            <p>Você já ouviu alguém dizer <span class="highlight">"eu nem ligo para o que eles falam"</span>? Muitas vezes, essa frase não é sinal de força, mas um escudo. No estilo dos melhores mangás de drama, o herói esconde suas cicatrizes sob um sorriso ou uma expressão de indiferença.</p>
+            
+            <div class="manga-placeholder">
+                <img src="img1.png" alt="Ilustração Mangá 1" class="manga-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>Espaço reservado para: img1.png (Cena do aluno com a máscara de indiferença)</p>'">
+            </div>
+
+            <p>Fingir que não se importa é uma forma de tentar tirar o "poder" do agressor. Mas, por dentro, o acúmulo dessas palavras cria um peso difícil de carregar sozinho.</p>
+        </div>
+
+        <div class="section">
+            <h2>Não é "Só uma Brincadeira"</h2>
+            <p>Se alguém sai machucado, a diversão acabou. O bullying se alimenta do silêncio de quem observa e da dor de quem sofre.</p>
+            
+            <div class="manga-placeholder">
+                <img src="img2.png" alt="Ilustração Mangá 2" class="manga-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>Espaço reservado para: img2.png (Situação de bullying no corredor da escola)</p>'">
+            </div>
+
+            <div class="quote">
+                "A indiferença é o peso mais difícil de carregar."
+            </div>
+        </div>
+
+        <div class="section" style="border-left-color: var(--secondary-color);">
+            <h2>Quebre o Ciclo</h2>
+            <ul>
+                <li><strong>Fale:</strong> Procurar ajuda não é sinal de fraqueza, é estratégia.</li>
+                <li><strong>Apoie:</strong> Se você vê alguém sofrendo, não seja apenas um espectador.</li>
+                <li><strong>Entenda:</strong> Ninguém merece ser diminuído para que outro se sinta maior.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Projeto Escolar - Criado para transformar o ambiente escolar.</p>
+    </footer>
+
+</body>
+</html>
