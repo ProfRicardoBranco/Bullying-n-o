@@ -8,242 +8,226 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f0f4f8; /* Fundo cinza claro */
+            --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --primary-color: #2c3e50; /* Azul escuro para textos principais */
-            --text-color: #5d6d7e;
-            --muted-text: #adb5bd;
-            
-            /* Cores dos Cards inspiradas na imagem */
-            --color-vítima: #06b6d4; /* Azul ciano */
-            --color-observador: #f59e0b; /* Amarelo ouro */
-            --color-pais: #ef4444; /* Vermelho coral */
+            --primary-color: #1e293b;
+            --accent-color: #4f46e5;
+            --text-color: #334155;
+            --color-vítima: #06b6d4;
+            --color-observador: #f59e0b;
+            --color-pais: #ef4444;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #dceefc 0%, #f0f4f8 100%);
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            text-transform: uppercase;
-            letter-spacing: -1.5px;
+            font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 10px;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* Estilo para as novas seções de texto */
+        .info-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-bottom: 60px;
-            border: 1px solid #d5dce2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
         }
 
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
         }
 
+        /* GRID DE CARDS */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 60px;
+            margin: 60px 0;
         }
 
         .card {
             background: var(--card-bg);
             border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            padding: 40px 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border-top: 6px solid;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 30px 20px;
+            border-top: 8px solid;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        .card h3 { font-family: 'Montserrat', sans-serif; margin: 15px 0; font-size: 1.2rem; }
+        .card ul { text-align: left; list-style: none; font-size: 0.9rem; }
+        .card ul li { margin-bottom: 10px; padding-left: 15px; position: relative; }
+        .card ul li::before { content: "•"; position: absolute; left: 0; color: inherit; font-weight: bold; }
+
+        .card-vítima { border-color: var(--color-vítima); color: var(--color-vítima); }
+        .card-observador { border-color: var(--color-observador); color: var(--color-observador); }
+        .card-pais { border-color: var(--color-pais); color: var(--color-pais); }
+
+        /* SEÇÃO DE SINTOMAS */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .card i.icon {
-            font-size: 3rem;
-            color: #d5dce2;
-            margin-bottom: 25px;
+        .symptom-box {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .card h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
+        .quote-box {
+            border-left: 5px solid #cbd5e1;
+            padding: 20px;
+            margin: 30px 0;
+            background: #f8fafc;
+            font-style: italic;
+            color: #475569;
         }
 
-        .card p.main-text {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .card p.sub-text {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .card-divider {
-            width: 50px;
-            height: 2px;
-            background-color: #d5dce2;
-            margin-bottom: 25px;
-        }
-
-        .card ul {
-            list-style: none;
-            text-align: left;
-            width: 100%;
-        }
-
-        .card ul li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 20px;
-            font-size: 0.95rem;
-        }
-
-        .card ul li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
+        .alert-box {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
             font-weight: bold;
         }
 
-        /* Cores específicas dos Cards */
-        .card-vítima { border-color: var(--color-vítima); }
-        .card-vítima i.icon { color: var(--color-vítima); }
+        footer { text-align: center; padding: 60px; color: #94a3b8; }
 
-        .card-observador { border-color: var(--color-observador); }
-        .card-observador i.icon { color: var(--color-observador); }
-
-        .card-pais { border-color: var(--color-pais); }
-        .card-pais i.icon { color: var(--color-pais); }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: var(--muted-text);
-            background-color: var(--card-bg);
-            border-top: 1px solid #d5dce2;
-        }
-
-        @media (max-width: 900px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            .card-grid, .symptoms-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>AÇÃO CONTRA O BULLYING</h1>
-        <p>O bullying para quando a nossa ação começa.</p>
-    </header>
+<header>
+    <h1>ALÉM DO SILÊNCIO</h1>
+    <p>O bullying para quando a nossa ação começa.</p>
+</header>
 
-    <div class="container">
-        
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/r7xsLuAPdVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <div class="card-grid">
-            
-            <div class="card card-vítima">
-                <i class="fas fa-handshake icon"></i>
-                <h2>SE VOCÊ É A VÍTIMA</h2>
-                <p class="main-text">A culpa NUNCA é sua. O agressor é o único responsável.</p>
-                <div class="card-divider"></div>
-                <ul>
-                    <li><strong>Fale:</strong> Conte a um professor, coordenador, seus pais ou um amigo de confiança.</li>
-                    <li><strong>Use Canais de Denúncia:</strong> Muitas escolas têm canais confidenciais. Use-os.</li>
-                    <li><strong>Mantenha a Calma:</strong> Tente não reagir com violência, afaste-se da situação.</li>
-                    <li><strong>Seja Direto:</strong> Se seguro, diga: "Pare com isso. Eu não gosto."</li>
-                </ul>
-            </div>
-
-            <div class="card card-observador">
-                <i class="fas fa-eye icon"></i>
-                <h2>SE VOCÊ É UM OBSERVADOR</h2>
-                <p class="main-text">O bullying sobrevive do seu silêncio. Você é a chave para a mudança.</p>
-                <div class="card-divider"></div>
-                <ul>
-                    <li><strong>Não Seja Plateia:</strong> Não ria, não incentive e não compartilhe as agressões.</li>
-                    <li><strong>Apoie a Vítima:</strong> Chame para conversar, inclua no seu grupo, mostre que ela não está sozinha.</li>
-                    <li><strong>Denuncie:</strong> Conte a um adulto sobre o que presenciou. Isso é proteger.</li>
-                    <li><strong>Converse com o Agressor:</strong> Se você tem proximidade, tente falar calmamente depois.</li>
-                </ul>
-            </div>
-
-            <div class="card card-pais">
-                <i class="fas fa-users icon"></i>
-                <h2>SE VOCÊ É PAI OU ENCARREGADO</h2>
-                <p class="main-text">Fique atento aos sinais. Mudanças de comportamento são pedidos de ajuda.</p>
-                <div class="card-divider"></div>
-                <ul>
-                    <li><strong>Converse Abertamente:</strong> Fale sobre o que é bullying e pergunte como ele se sente.</li>
-                    <li><strong>Escute com Empatia:</strong> Nunca desvalorize um relato. Escute sem julgamentos.</li>
-                    <li><strong>Contacte a Escola:</strong> Procure a direção e coordenação para relatar e pedir providências.</li>
-                    <li><strong>Reforce a Autoestima:</strong> Mostre que ele é amado e valorizado, independentemente de tudo.</li>
-                </ul>
-            </div>
-
-        </div>
-
+<div class="container">
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/r7xsLuAPdVo" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Projeto Escolar - O bullying para quando a nossa ação começa.</p>
-    </footer>
+    <section class="info-section">
+        <h2>Entendendo o Fenômeno</h2>
+        <p>Segundo a psicóloga <strong>Tânia Paias</strong>, o bullying é todo ato intencional e continuado que pretende humilhar, denegrir e intimidar colegas. Isso produz um <strong>desequilíbrio de poder</strong> entre o agressor e a vítima.</p>
+        <p style="margin-top: 15px;">Nas escolas, isso se manifesta através de ameaças físicas, apelidos ofensivos e exclusão social. Diferente de uma "brincadeira", o bullying é uma violência que busca ferir repetidamente.</p>
+    </section>
+
+    <div class="card-grid">
+        <div class="card card-vítima">
+            <i class="fas fa-user-shield fa-2x"></i>
+            <h3>PARA A VÍTIMA</h3>
+            <ul>
+                <li>Não se culpe: o erro é de quem agride.</li>
+                <li>Fale com um adulto de confiança hoje mesmo.</li>
+                <li>Não guarde o medo para você; a denúncia é sua voz.</li>
+            </ul>
+        </div>
+        <div class="card card-observador">
+            <i class="fas fa-users fa-2x"></i>
+            <h3>PARA OS COLEGAS</h3>
+            <ul>
+                <li>Não seja plateia: sua risada alimenta o agressor.</li>
+                <li>Apoie quem está sofrendo; inclua-o no grupo.</li>
+                <li>Denunciar não é "fofoca", é proteção.</li>
+            </ul>
+        </div>
+        <div class="card card-pais">
+            <i class="fas fa-home fa-2x"></i>
+            <h3>PARA OS PAIS</h3>
+            <ul>
+                <li>Observe mudanças bruscas de comportamento.</li>
+                <li>Nunca desvalorize uma queixa do seu filho.</li>
+                <li>Contacte a escola imediatamente ao saber.</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="info-section">
+        <h2>As Marcas Invisíveis</h2>
+        <p>Muitas vezes, a criança prefere o silêncio. Como diz um relato real: <em>"Prefiro continuar a ser vítima do que todos saberem que já fui vítima de bullying"</em>. Esse medo da exposição e de retaliações é o que mantém o ciclo vivo.</p>
+        
+        <div class="symptoms-grid">
+            <div class="symptom-box">
+                <strong><i class="fas fa-stethosccope"></i> Sintomas Físicos</strong>
+                <ul>
+                    <li>Dores de cabeça frequentes</li>
+                    <li>Dores de barriga sem causa médica</li>
+                    <li>Falta de vontade de ir à escola</li>
+                    <li>Alterações no sono ou apetite</li>
+                </ul>
+            </div>
+            <div class="symptom-box">
+                <strong><i class="fas fa-brain"></i> Sintomas Emocionais</strong>
+                <ul>
+                    <li>Irritabilidade extrema</li>
+                    <li>Apatia e desinteresse por hobbies</li>
+                    <li>Redução drástica da autoconfiança</li>
+                    <li>Dificuldade em confiar em terceiros</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            "A longo prazo, essa violência deixa graves sequelas, afetando o desenvolvimento escolar e a capacidade de criar laços sociais saudáveis no futuro."
+        </div>
+
+        <div class="alert-box">
+            PRECISA DE AJUDA? Ligue para o apoio gratuito: 116 111
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Projeto Escolar - Baseado em orientações de Tânia Paias (Destak).</p>
+</footer>
 
 </body>
 </html>
