@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Além da Máscara | Projeto Bullying</title>
+    <title>Ação Contra o Bullying | Projeto Escolar</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --primary-color: #8b5cf6; /* Roxo vibrante */
-            --secondary-color: #06b6d4; /* Azul ciano */
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-color: #f0f4f8; /* Fundo cinza claro */
+            --card-bg: #ffffff;
+            --primary-color: #2c3e50; /* Azul escuro para textos principais */
+            --text-color: #5d6d7e;
+            --muted-text: #adb5bd;
+            
+            /* Cores dos Cards inspiradas na imagem */
+            --color-vítima: #06b6d4; /* Azul ciano */
+            --color-observador: #f59e0b; /* Amarelo ouro */
+            --color-pais: #ef4444; /* Vermelho coral */
         }
 
         * {
@@ -30,31 +35,24 @@
         }
 
         header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%);
-            padding: 20px;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #dceefc 0%, #f0f4f8 100%);
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             text-transform: uppercase;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
+            color: var(--primary-color);
             margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .video-container {
@@ -63,8 +61,9 @@
             height: 0;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 60px;
+            border: 1px solid #d5dce2;
         }
 
         .video-container iframe {
@@ -75,69 +74,120 @@
             height: 100%;
         }
 
-        .section {
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-bottom: 60px;
+        }
+
+        .card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 5px solid var(--primary-color);
-        }
-
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        .manga-placeholder {
-            width: 100%;
-            background: #334155;
-            border: 2px dashed var(--text-muted);
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border-top: 6px solid;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            min-height: 300px;
+            text-align: center;
         }
 
-        .manga-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
         }
 
-        .quote {
-            font-style: italic;
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 15px;
-            margin: 20px 0;
-            color: var(--text-muted);
+        .card i.icon {
+            font-size: 3rem;
+            color: #d5dce2;
+            margin-bottom: 25px;
         }
 
-        .highlight {
+        .card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
             color: var(--primary-color);
-            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
+
+        .card p.main-text {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card p.sub-text {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .card-divider {
+            width: 50px;
+            height: 2px;
+            background-color: #d5dce2;
+            margin-bottom: 25px;
+        }
+
+        .card ul {
+            list-style: none;
+            text-align: left;
+            width: 100%;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Cores específicas dos Cards */
+        .card-vítima { border-color: var(--color-vítima); }
+        .card-vítima i.icon { color: var(--color-vítima); }
+
+        .card-observador { border-color: var(--color-observador); }
+        .card-observador i.icon { color: var(--color-observador); }
+
+        .card-pais { border-color: var(--color-pais); }
+        .card-pais i.icon { color: var(--color-pais); }
 
         footer {
             text-align: center;
             padding: 40px;
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--muted-text);
+            background-color: var(--card-bg);
+            border-top: 1px solid #d5dce2;
+        }
+
+        @media (max-width: 900px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ALÉM DA MÁSCARA</h1>
-        <p>O que acontece quando o silêncio é a única resposta?</p>
+        <h1>AÇÃO CONTRA O BULLYING</h1>
+        <p>O bullying para quando a nossa ação começa.</p>
     </header>
 
     <div class="container">
@@ -146,43 +196,53 @@
             <iframe src="https://www.youtube.com/embed/r7xsLuAPdVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <div class="section">
-            <h2>A Armadura de Vidro</h2>
-            <p>Você já ouviu alguém dizer <span class="highlight">"eu nem ligo para o que eles falam"</span>? Muitas vezes, essa frase não é sinal de força, mas um escudo. No estilo dos melhores mangás de drama, o herói esconde suas cicatrizes sob um sorriso ou uma expressão de indiferença.</p>
+        <div class="card-grid">
             
-            <div class="manga-placeholder">
-                <img src="img1.png" alt="Ilustração Mangá 1" class="manga-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>Espaço reservado para: img1.png (Cena do aluno com a máscara de indiferença)</p>'">
+            <div class="card card-vítima">
+                <i class="fas fa-handshake icon"></i>
+                <h2>SE VOCÊ É A VÍTIMA</h2>
+                <p class="main-text">A culpa NUNCA é sua. O agressor é o único responsável.</p>
+                <div class="card-divider"></div>
+                <ul>
+                    <li><strong>Fale:</strong> Conte a um professor, coordenador, seus pais ou um amigo de confiança.</li>
+                    <li><strong>Use Canais de Denúncia:</strong> Muitas escolas têm canais confidenciais. Use-os.</li>
+                    <li><strong>Mantenha a Calma:</strong> Tente não reagir com violência, afaste-se da situação.</li>
+                    <li><strong>Seja Direto:</strong> Se seguro, diga: "Pare com isso. Eu não gosto."</li>
+                </ul>
             </div>
 
-            <p>Fingir que não se importa é uma forma de tentar tirar o "poder" do agressor. Mas, por dentro, o acúmulo dessas palavras cria um peso difícil de carregar sozinho.</p>
-        </div>
-
-        <div class="section">
-            <h2>Não é "Só uma Brincadeira"</h2>
-            <p>Se alguém sai machucado, a diversão acabou. O bullying se alimenta do silêncio de quem observa e da dor de quem sofre.</p>
-            
-            <div class="manga-placeholder">
-                <img src="img2.png" alt="Ilustração Mangá 2" class="manga-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>Espaço reservado para: img2.png (Situação de bullying no corredor da escola)</p>'">
+            <div class="card card-observador">
+                <i class="fas fa-eye icon"></i>
+                <h2>SE VOCÊ É UM OBSERVADOR</h2>
+                <p class="main-text">O bullying sobrevive do seu silêncio. Você é a chave para a mudança.</p>
+                <div class="card-divider"></div>
+                <ul>
+                    <li><strong>Não Seja Plateia:</strong> Não ria, não incentive e não compartilhe as agressões.</li>
+                    <li><strong>Apoie a Vítima:</strong> Chame para conversar, inclua no seu grupo, mostre que ela não está sozinha.</li>
+                    <li><strong>Denuncie:</strong> Conte a um adulto sobre o que presenciou. Isso é proteger.</li>
+                    <li><strong>Converse com o Agressor:</strong> Se você tem proximidade, tente falar calmamente depois.</li>
+                </ul>
             </div>
 
-            <div class="quote">
-                "A indiferença é o peso mais difícil de carregar."
+            <div class="card card-pais">
+                <i class="fas fa-users icon"></i>
+                <h2>SE VOCÊ É PAI OU ENCARREGADO</h2>
+                <p class="main-text">Fique atento aos sinais. Mudanças de comportamento são pedidos de ajuda.</p>
+                <div class="card-divider"></div>
+                <ul>
+                    <li><strong>Converse Abertamente:</strong> Fale sobre o que é bullying e pergunte como ele se sente.</li>
+                    <li><strong>Escute com Empatia:</strong> Nunca desvalorize um relato. Escute sem julgamentos.</li>
+                    <li><strong>Contacte a Escola:</strong> Procure a direção e coordenação para relatar e pedir providências.</li>
+                    <li><strong>Reforce a Autoestima:</strong> Mostre que ele é amado e valorizado, independentemente de tudo.</li>
+                </ul>
             </div>
-        </div>
 
-        <div class="section" style="border-left-color: var(--secondary-color);">
-            <h2>Quebre o Ciclo</h2>
-            <ul>
-                <li><strong>Fale:</strong> Procurar ajuda não é sinal de fraqueza, é estratégia.</li>
-                <li><strong>Apoie:</strong> Se você vê alguém sofrendo, não seja apenas um espectador.</li>
-                <li><strong>Entenda:</strong> Ninguém merece ser diminuído para que outro se sinta maior.</li>
-            </ul>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2024 Projeto Escolar - Criado para transformar o ambiente escolar.</p>
+        <p>&copy; 2024 Projeto Escolar - O bullying para quando a nossa ação começa.</p>
     </footer>
 
 </body>
